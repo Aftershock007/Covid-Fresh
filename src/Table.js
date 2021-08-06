@@ -1,6 +1,8 @@
 import React from "react";
 import "./Table.css";
 import numeral from "numeral";
+import CountUp from "react-countup";
+import { Typography } from "@material-ui/core";
 
 function Table({ countries }) {
   return (
@@ -9,7 +11,14 @@ function Table({ countries }) {
         <tr>
           <td>{country.country}</td>
           <td>
-            <strong>{numeral(country.cases).format("0,0")}</strong>
+            <strong>
+              <CountUp
+                start={0}
+                end={country.cases}
+                duration={5}
+                separator=","
+              />
+            </strong>
           </td>
         </tr>
       ))}
